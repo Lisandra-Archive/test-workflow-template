@@ -125,7 +125,7 @@ def main() -> None:
         mkdocs-exclude==1.0.2
     """
     )
-    if template.template_type in ["netlify", "vercel"] and template.generate_graph:
+    if template.template_type in ["netlify", "vercel"]:
         # create requirements_actions.txt
         requirements_actions = Path("requirements-actions.txt")
         requirements_actions_content = textwrap.dedent(

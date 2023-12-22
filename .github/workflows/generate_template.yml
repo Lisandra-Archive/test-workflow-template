@@ -3,6 +3,15 @@ name: Generate website
 on:
   workflow_dispatch:
     inputs:
+      template_type:
+        description: "The template type"
+        required: true
+        default: "gh_pages"
+        type: choice
+        options:
+          - "gh_pages"
+          - "netlify"
+          - "vercel"
       site_name:
         type: string
         required: true
@@ -33,15 +42,6 @@ on:
         required: false
         description: "Enable comments"
         default: false
-      template_type:
-        description: "The template type"
-        required: true
-        default: "gh_pages"
-        type: choice
-        options:
-          - "gh_pages"
-          - "netlify"
-          - "vercel"
       auto_merge:
         description: "Automatically merge the pull request"
         required: false
@@ -66,6 +66,6 @@ jobs:
       template_type: ${{ inputs.template_type }}
       auto_merge: ${{ inputs.auto_merge }}
     secrets:
-      GH_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       AUTHOR_EMAIL: ${{ secrets.AUTHOR_EMAIL || 'github-actions[bot]@users.noreply.github.com' }}
       AUTHOR_NAME: ${{ secrets.AUTHOR_NAME || 'github-actions[bot]' }}

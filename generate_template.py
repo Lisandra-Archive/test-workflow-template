@@ -127,7 +127,7 @@ def main() -> None:
     )
     if template.template_type in ["netlify", "vercel"]:
         # create requirements_actions.txt
-        requirements_actions = Path("requirements-actions.txt")
+        requirements_actions = Path("requirements_actions.txt")
         requirements_actions_content = textwrap.dedent(
             """
             obsidiantools==0.10.0
@@ -138,7 +138,7 @@ def main() -> None:
         with requirements_actions.open("w", encoding="UTF-8") as f:
             f.write(requirements_actions_content)
 
-    elif template.template_type == "gh_pages" and template.generate_graph:
+    elif template.template_type == "gh_pages":
         requirements += "\nobsidiantools==0.10.0\npyvis==0.3.1"
 
     with Path("requirements.txt").open("w", encoding="UTF-8") as f:

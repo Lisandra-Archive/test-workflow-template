@@ -2,7 +2,7 @@ name: Publish
 
 on:
   workflow_dispatch:
-  inputs: 
+    inputs: 
       GENERATE_GRAPH: 
         description: 'Generate graph'
         required: false

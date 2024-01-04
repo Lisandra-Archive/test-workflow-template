@@ -2,6 +2,12 @@ name: Publish
 
 on:
   workflow_dispatch:
+  inputs: 
+      GENERATE_GRAPH: 
+        description: 'Generate graph'
+        required: false
+        default: false
+        type: boolean
   push:
     branches:
       - main
